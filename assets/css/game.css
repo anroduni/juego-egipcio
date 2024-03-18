@@ -1,164 +1,162 @@
 .contenedor {
-    width: 920px;
-    height: 280px;
-    margin: 0 auto;
-  
-    position: relative;
-  
-    background: linear-gradient(#000000, transparent) #ff8170; /*linear-gradient(#90ebff, white);*/
-    transition: background-color 1s linear;
-    overflow: hidden;
-  }
-  
-  .mediodia {
-    background-color: #ff8f8f;
-  }
-  
-  .tarde {
-    background-color: #501212;
-  }
-  
-  .noche {
-    background-color: #15112d;
-  }
+  width: 920px;
+  height: 280px;
+  margin: 0 auto;
 
-  .saya {
-    width: 65px;
-    height: 84px;
-    position: absolute;
-    bottom: 22px;
-    left: 42px;
-    z-index: 2;
-    background: url(../images/saya.png) repeat-x 0px 0px;
-    background-size: 288px 84px;
-    background-position-x: 0px;
+  position: relative;
+
+  background: linear-gradient(#000000, transparent) #ff8170; /*linear-gradient(#90ebff, white);*/
+  transition: background-color 1s linear;
+  overflow: hidden;
+}
+
+.mediodia {
+  background-color: #ff8f8f;
+}
+
+.tarde {
+  background-color: #501212;
+}
+
+.noche {
+  background-color: #15112d;
+}
+
+.saya {
+  width: 65px;
+  height: 84px;
+  position: absolute;
+  bottom: 22px;
+  left: 42px;
+  z-index: 2;
+  background: url(../images/saya.png) repeat-x 0px 0px;
+  background-size: 288px 84px;
+  background-position-x: 0px;
+}
+
+.saya-corriendo {
+  animation: animarSaya 0.25s steps(2) infinite;
+}
+.saya-estrellado {
+  background-position-x: -252px;
+}
+
+.suelo {
+  width: 200%;
+  height: 42px;
+
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  background: url(../images/suelo.png) repeat-x 0px 0px;
+  background-size: 50% 42px;
+}
+
+.calavera {
+  width: 46px;
+  height: 96px;
+
+  position: absolute;
+  bottom: 16px;
+  left: 600px;
+  z-index: 1;
+
+  background: url(../images/espectro.png) no-repeat;
+}
+.osiris {
+  width: 98px;
+  height: 66px;
+
+  background: url(../images/osiris.png) no-repeat;
+}
+.moneda {
+  width: 92px;
+  height: 26px;
+
+  position: absolute;
+  z-index: 0;
+
+  background: url(../images/1monedaoro.png) no-repeat;
+  background-size: 92px 26px;
+}
+.sacooro {
+  width: 92px;
+  height: 26px;
+
+  position: absolute;
+  z-index: 0;
+
+  background: url(../images/sacodeoro.png) no-repeat;
+  background-size: 92px 26px;
+}
+.cofreoro {
+  width: 92px;
+  height: 26px;
+
+  position: absolute;
+  z-index: 0;
+
+  background: url(../images/cofreoro.png) no-repeat;
+  background-size: 92px 26px;
+}
+.nube {
+  width: 92px;
+  height: 26px;
+
+  position: absolute;
+  z-index: 0;
+
+  background: url(../images/nube.png) no-repeat;
+  background-size: 92px 26px;
+}
+
+.oroacumulado {
+  width: 100px;
+  height: 30px;
+
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  z-index: 10;
+
+  color: #d48871;
+  font-family: Verdana;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.game-over {
+  display: none;
+
+  position: absolute;
+  width: 100%;
+
+  text-align: center;
+  color: #ff3c00;
+  font-size: 30px;
+  font-family: Verdana;
+  font-weight: 700;
+}
+.new-intent {
+  display: none;
+
+  position: absolute;
+  width: 100%;
+
+  text-align: center;
+  color: #0e0401;
+  font-size: 30px;
+  font-family: Verdana;
+  font-weight: 700;
+}
+
+@keyframes animarSaya {
+  from {
+    background-position-x: -84px;
   }
-  
-  .saya-corriendo {
-    animation: animarSaya 0.25s steps(2) infinite;
-  }
-  .saya-estrellado {
+  to {
     background-position-x: -252px;
   }
-  
-  .suelo {
-    width: 200%;
-    height: 42px;
-  
-    position: absolute;
-    bottom: 0;
-    left: 0;
-  
-    background: url(../images/suelo.png) repeat-x 0px 0px;
-    background-size: 50% 42px;
-  }
-  
-  .calavera {
-    width: 46px;
-    height: 96px;
-  
-    position: absolute;
-    bottom: 16px;
-    left: 600px;
-    z-index: 1;
-  
-    background: url(../images/espectro.png) no-repeat;
-  }
-  .osiris {
-    width: 98px;
-    height: 66px;
-  
-    background: url(../images/osiris.png) no-repeat;
-  }
-  .moneda {
-    width: 92px;
-    height: 26px;
-  
-    position: absolute;
-    z-index: 0;
-  
-    background: url(../images/1monedaoro.png) no-repeat;
-    background-size: 92px 26px;
-  }
-  .sacooro {
-    width: 92px;
-    height: 26px;
-  
-    position: absolute;
-    z-index: 0;
-  
-    background: url(../images/sacodeoro.png) no-repeat;
-    background-size: 92px 26px;
-  }
-  .cofreoro {
-    width: 92px;
-    height: 26px;
-  
-    position: absolute;
-    z-index: 0;
-  
-    background: url(../images/cofreoro.png) no-repeat;
-    background-size: 92px 26px;
-  }
-  .nube {
-    width: 92px;
-    height: 26px;
-  
-    position: absolute;
-    z-index: 0;
-  
-    background: url(../images/nube.png) no-repeat;
-    background-size: 92px 26px;
-  }
-  
-.oroacumulado {
-    width: 100px;
-    height: 30px;
-  
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    z-index: 10;
-  
-    color: #d48871;
-    font-family: Verdana;
-    font-size: 30px;
-    font-weight: bold;
-    text-align: right;
-  }
-  
-  .game-over {
-    display: none;
-  
-    position: absolute;
-    width: 100%;
-  
-    text-align: center;
-    color: #ff3c00;
-    font-size: 30px;
-    font-family: Verdana;
-    font-weight: 700;
-  }
-  .new-intent {
-    display: none;
-  
-    position: absolute;
-    width: 100%;
-  
-    text-align: center;
-    color: #0e0401;
-    font-size: 30px;
-    font-family: Verdana;
-    font-weight: 700;
-  }
-  
-  @keyframes animarSaya {
-    from {
-      background-position-x: -84px;
-    }
-    to {
-      background-position-x: -252px;
-    }
-  }
-  
-
+}

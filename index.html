@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Egipto Antiguo</title>
@@ -13,129 +13,128 @@
       crossorigin="anonymous"
     />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-</head>
-<body>
+  </head>
+  <body>
     <div>
-        <header>
-          <h1>Dioses de egipto</h1>
-        </header>
+      <header>
+        <h1>Dioses de egipto</h1>
+      </header>
+    </div>
+
+    <div class="div linea">
+      <h3>Sinopsis</h3>
+
+      <p>
+        En un viaje épico a través de las entrañas del inframundo, el destino de
+        los protagonistas se entrelaza con la promesa de un juicio final. Saya,
+        una intrépida exploradora, se embarca en la peligrosa misión de
+        atravesar las nueve puertas del reino de los muertos, con la esperanza
+        de reunir las riquezas necesarias para enfrentar el juicio que
+        determinará su destino eterno. Sin embargo, el camino está sembrado de
+        trampas mortales y guardianes divinos. Entre las sombras se ocultan
+        dioses ancestrales como Osiris, Anubis y Amentit, algunos dispuestos a
+        brindar ayuda desinteresada mientras otros conspiran para desviar a los
+        valientes viajeros de su destino. Cada paso hacia adelante revela nuevas
+        herramientas, tesoros tentadores y señales misteriosas que desafían la
+        determinación de Saya y Beek, quien se une a la travesía en compañía de
+        Orus en un intento desesperado por salvar a su compañera. Enfrentando la
+        oscuridad que acecha en cada esquina y la incertidumbre del juicio
+        final, los protagonistas se ven obligados a confrontar sus propios
+        demonios internos mientras luchan por la redención y la esperanza de un
+        futuro más allá del velo de la muerte. ¿Lograrán superar las pruebas del
+        inframundo y alcanzar la redención final, o sucumbirán ante las fuerzas
+        oscuras que acechan en la sombra? El destino de sus almas pende de un
+        hilo mientras la batalla por la supervivencia se desata en el corazón
+        del inframundo.
+      </p>
+    </div>
+    <div class="contenedor">
+      <div class="suelo"></div>
+
+      <div class="saya saya-corriendo"></div>
+      <div class="game-over">GAME OVER</div>
+      <div class="oroacumulado">0</div>
+    </div>
+    <div class="div container">
+      <h3>Comentarios</h3>
+      <p>Puedes deja un comentario: ¿te gusto el juego; que mejorarias?</p>
+
+      <div id="alert1" class="alert alert-default" role="alert">
+        A simple success alert—check it out!
       </div>
-  
-      <div class="div linea">
-        <h3>Sinopsis</h3>
-  
-        <p>
-          En un viaje épico a través de las entrañas del inframundo, el destino de
-          los protagonistas se entrelaza con la promesa de un juicio final. Saya,
-          una intrépida exploradora, se embarca en la peligrosa misión de
-          atravesar las nueve puertas del reino de los muertos, con la esperanza
-          de reunir las riquezas necesarias para enfrentar el juicio que
-          determinará su destino eterno. Sin embargo, el camino está sembrado de
-          trampas mortales y guardianes divinos. Entre las sombras se ocultan
-          dioses ancestrales como Osiris, Anubis y Amentit, algunos dispuestos a
-          brindar ayuda desinteresada mientras otros conspiran para desviar a los
-          valientes viajeros de su destino. Cada paso hacia adelante revela nuevas
-          herramientas, tesoros tentadores y señales misteriosas que desafían la
-          determinación de Saya y Beek, quien se une a la travesía en compañía de
-          Orus en un intento desesperado por salvar a su compañera. Enfrentando la
-          oscuridad que acecha en cada esquina y la incertidumbre del juicio
-          final, los protagonistas se ven obligados a confrontar sus propios
-          demonios internos mientras luchan por la redención y la esperanza de un
-          futuro más allá del velo de la muerte. ¿Lograrán superar las pruebas del
-          inframundo y alcanzar la redención final, o sucumbirán ante las fuerzas
-          oscuras que acechan en la sombra? El destino de sus almas pende de un
-          hilo mientras la batalla por la supervivencia se desata en el corazón
-          del inframundo.
-        </p>
-      </div>
-      <div class="contenedor">
-        <div class="suelo"></div>
-  
-        <div class="saya saya-corriendo"></div>
-        <div class="game-over">GAME OVER</div>
-        <div class="oroacumulado">0</div>
-      </div>
-      <div class="div container">
-        <h3>Comentarios</h3>
-        <p>Puedes deja un comentario: ¿te gusto el juego; que mejorarias?</p>
-        
-        <div id="alert1" class="alert alert-default" role="alert">
-          A simple success alert—check it out!
+
+      <form id="frmContacto">
+        <div class="form-group">
+          <input type="hidden" name="hddIdComentario" id="hddIdComentario" />
+          <input type="hidden" name="opcionOpc" id="opcionOpc" />
+          <label for="txtNombre">Nombre completo</label>
+          <input
+            type="text"
+            name="txtNombre"
+            id="txtNombre"
+            class="form-control"
+            placeholder="Nombre"
+          />
         </div>
-  
-        <form id="frmContacto">
-          <div class="form-group">
-            <input type="hidden" name="hddIdComentario" id="hddIdComentario" />
-            <input type="hidden" name="opcionOpc" id="opcionOpc" />
-            <label for="txtNombre">Nombre completo</label>
-            <input
-              type="text"
-              name="txtNombre"
-              id="txtNombre"
-              class="form-control"
-              placeholder="Nombre"
-            />
-          </div>
-          <div class="form-group">
-            <label for="txtEmail">Email</label>
-            <input
-              type="email"
-              class="form-control"
-              name="txtEmail"
-              id="txtEmail"
-              placeholder="Email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="txtTelefono">Telefono</label>
-            <input
-              type="number"
-              class="form-control"
-              name="txtTelefono"
-              id="txtTelefono"
-              placeholder="Telefono"
-            />
-          </div>
-          <div class="form-group">
-            <label for="txtComentario">Comentario</label>
-            <textarea
-              class="form-control"
-              id="txtComentario"
-              name="txtComentario"
-              placeholder="Comentario"
-              cols="16"
-              rows="8"
-            ></textarea>
-          </div>
-          <button type="button" id="btnInsertar" class="btn btn-primary">
-            Enviar comentarios
-          </button>
-          <button type="button" id="btnActualizar" class="btn btn-success">
-            Actualizar comentario
-          </button>
-          <button type="button" id="btnRegresar" class="btn btn-danger">
-            Limpiar
-          </button>
-          
-          <div>
-            <h3>Comentarios previos</h3>
-  
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Nombre</th>
-                  <th>Email</th>
-                  <th>Teléfono</th>
-                  <th>Comentario</th>
-                </tr>
-              </thead>
-              <tbody id="tblComentariosTbody" name="tblComentariosTbody"></tbody>
-            </table>
-          </div>
-        </form>
-      </div>
+        <div class="form-group">
+          <label for="txtEmail">Email</label>
+          <input
+            type="email"
+            class="form-control"
+            name="txtEmail"
+            id="txtEmail"
+            placeholder="Email"
+          />
+        </div>
+        <div class="form-group">
+          <label for="txtTelefono">Telefono</label>
+          <input
+            type="number"
+            class="form-control"
+            name="txtTelefono"
+            id="txtTelefono"
+            placeholder="Telefono"
+          />
+        </div>
+        <div class="form-group">
+          <label for="txtComentario">Comentario</label>
+          <textarea
+            class="form-control"
+            id="txtComentario"
+            name="txtComentario"
+            placeholder="Comentario"
+            cols="16"
+            rows="8"
+          ></textarea>
+        </div>
+        <button type="button" id="btnInsertar" class="btn btn-primary">
+          Enviar comentarios
+        </button>
+        <button type="button" id="btnActualizar" class="btn btn-success">
+          Actualizar comentario
+        </button>
+        <button type="button" id="btnRegresar" class="btn btn-danger">
+          Limpiar
+        </button>
+
+        <div>
+          <h3>Comentarios previos</h3>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Teléfono</th>
+                <th>Comentario</th>
+              </tr>
+            </thead>
+            <tbody id="tblComentariosTbody" name="tblComentariosTbody"></tbody>
+          </table>
+        </div>
+      </form>
+    </div>
 
     <footer id="comentarios">copyright 2024</footer>
-
-</body>
+  </body>
 </html>
