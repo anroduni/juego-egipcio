@@ -137,10 +137,86 @@
 
     <footer id="comentarios">copyright 2024</footer>
 
-<script>
+    <script>
+      function actualizar(idcomentario, nombre, email, telefono, comentario) {
+        /*
+          //js
+          document.getElementById("txtNombre").value = nombre//localiza un elemento el el arbolo dom por medio de su id y le asigna un valor
+          document.getElementById("txtEmail").value = email
+          document.getElementById("txtTelefono").value = telefono
+          document.getElementById("txtComentario").value = comentario
+          */
+        //Jquery
+        $(`#hddIdComentario`).prop("value", idcomentario);
+        $(`#txtNombre`).prop("value", nombre);
+        $(`#txtEmail`).prop("value", email);
+        $(`#txtTelefono`).prop("value", telefono);
+        $(`#txtComentario`).prop("value", comentario);
+        $(`#opcionOpc`).prop("value", 3);
 
+        $(`#btnInsertar`).hide();
+        $(`#btnActualizar`).show();
 
-    function getComments() {
+        $(`#btnActualizar`).click(function () {
+          var formData = $("#frmContacto").serialize(); //serializa el fomr,//investigagar mas
+
+          $.ajax({
+            //peticion ajax; hay maneraas mas recientes, investiga, no recuerdo el nombre
+            type: "POST", //escoge como mandar los datos, GET//POST//PUT//DELETE // anteriormente especificada en el method del form
+            url: "controllers/ComentariosController.php", //lugar de destino del envio//ruta anteriormente en action del form
+            data: formData, //datos a mandar, sugerencia propia: Intentar mandar la opcion opc, aqui, y no en el form serialize
+            success: function (data) {
+              //tras la accion(mensaje), recibe una respuesta
+              console.log(data); //imprime data para saber su contenido
+              $("#alert1").show(); //muestra la alerta
+              $("#alert1").html(data); //coloca la info de la respuesta data, en la alerta
+              if (data.trim() === "Comentario actualizado") {
+                //compara el valor recibido con el valor esperado
+                $("#alert1").attr("class", "alert-primary"); //otorga nuevos/distintos estilos de css boostrap
+                getComments();
+                $(`#hddIdComentario`).prop("value", "");
+                $(`#txtNombre`).prop("value", "");
+                $(`#txtEmail`).prop("value", "");
+                $(`#txtTelefono`).prop("value", "");
+                $(`#txtComentario`).prop("value", ""); //se "limpian" los campos del formulario tras haber editado,
+                //asi  permitiendo la posiblidad de poder agregar uno nuevo.
+
+                $(`#btnInsertar`).show(); //oculta/muestra botones segun sea el caso estetico de acuerdo al actual estado del formulario
+                $(`#btnActualizar`).hide();
+              } else {
+                $("#alert1").attr("class", "alert-danger"); //addClass tambien funciona
+              }
+            },
+          });
+        });
+      }
+
+      function eliminar(idcomentario) {
+        if (confirm("¿Deseas eliminar el comentario selecionado?")) {
+          $.ajax({
+            type: "POST",
+            data: {
+              opcionOpc: 4,
+              idComentario: idcomentario,
+            },
+            url: "controllers/ComentariosController.php",
+            success: function (data) {
+              console.log(data); //imprime data para saber su contenido
+              $("#alert1").show(); //muestra la alerta
+              $("#alert1").html(data); //coloca la info de la respuesta data, en la alerta
+              if (data.trim() === "Eliminacion exitosa.") {
+                //compara el valor recibido con el valor esperado
+                $("#alert1").attr("class", "alert-primary"); //otorga nuevos/distintos estilos de css boostrap
+                getComments();
+              } else {
+                $("#alert1").attr("class", "alert-danger"); //addClass tambien funciona
+              }
+            },
+          });
+        }
+      }
+
+      function getComments() {
         $.ajax({
           type: "POST",
           data: {
@@ -153,50 +229,50 @@
         });
       }
 
-      
-//Jquery
-$(document).ready(function () {
-    //se asegura de que el arbol dom ya este cargado
-    $("#btnActualizar").hide(); //oculta el boton
-    $("#alert1").hide(); //oculta la alerta//hide() en gral oculta elementos
+      //Jquery
+      $(document).ready(function () {
+        //se asegura de que el arbol dom ya este cargado
+        $("#btnActualizar").hide(); //oculta el boton
+        $("#alert1").hide(); //oculta la alerta//hide() en gral oculta elementos
 
-    getComments();
+        getComments();
 
-    $("#btnInsertar").click(function () {
-      //se le otorga el envento onclick
-      $(`#opcionOpc`).prop("value", 1);
-      // $("#frmContacto").submit(function(){
-      var formData = $("#frmContacto").serialize(); //serializa el fomr,//investigagar mas
-      $.ajax({
-        //peticion ajax; hay maneraas mas recientes, investiga, no recuerdo el nombre
-        type: "POST", //escoge como mandar los datos, GET//POST//PUT//DELETE // anteriormente especificada en el method del form
-        url: "controllers/ComentariosController.php", //lugar de destino del envio//ruta anteriormente en action del form
-        data: formData, //datos a mandar
-        success: function (data) {
-          //tras la accion(mensaje), recibe una respuesta
-          console.log(data); //imprime data para saber su contenido
-          $("#alert1").show(); //muestra la alerta
-          $("#alert1").html(data); //coloca la info de la respuesta data, en la alerta
-          if (data.trim() === "Hemos recibido su comentario exitosamente.") {
-            //compara el valor recibido con el valor esperado
-            $("#alert1").attr("class", "alert-primary"); //otorga nuevos/distintos estilos de css boostrap
-          } else {
-            $("#alert1").attr("class", "alert-danger"); //addClass tambien funciona
-          }
-        },
+        $("#btnInsertar").click(function () {
+          //se le otorga el envento onclick
+          $(`#opcionOpc`).prop("value", 1);
+          // $("#frmContacto").submit(function(){
+          var formData = $("#frmContacto").serialize(); //serializa el fomr,//investigagar mas
+          $.ajax({
+            //peticion ajax; hay maneraas mas recientes, investiga, no recuerdo el nombre
+            type: "POST", //escoge como mandar los datos, GET//POST//PUT//DELETE // anteriormente especificada en el method del form
+            url: "controllers/ComentariosController.php", //lugar de destino del envio//ruta anteriormente en action del form
+            data: formData, //datos a mandar
+            success: function (data) {
+              //tras la accion(mensaje), recibe una respuesta
+              console.log(data); //imprime data para saber su contenido
+              $("#alert1").show(); //muestra la alerta
+              $("#alert1").html(data); //coloca la info de la respuesta data, en la alerta
+              if (
+                data.trim() === "Hemos recibido su comentario exitosamente."
+              ) {
+                //compara el valor recibido con el valor esperado
+                $("#alert1").attr("class", "alert-primary"); //otorga nuevos/distintos estilos de css boostrap
+              } else {
+                $("#alert1").attr("class", "alert-danger"); //addClass tambien funciona
+              }
+            },
+          });
+        });
+        return false; //retorna respuesta//investiga que onda
       });
-    });
-    return false; //retorna respuesta//investiga que onda
-  });
 
-  //});
-
-</script>
+      //});
+    </script>
 
     <script
-    src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
-    crossorigin="anonymous"
-  ></script>
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>
